@@ -79,3 +79,12 @@
     height: 130px;
   }
 }
+
+
+@media(min-width: 1200px){
+
+  .header{
+    width: 736px;
+    height: 100px;
+  }
+}
