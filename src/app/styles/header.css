@@ -11,4 +11,11 @@
 .header_container{
   display: flex;
   align-items: center;
+  gap: .9rem;
+}
+
+.teste{
+  width: 1px;
+  height: 32px;
+  background-color: var(--grey-2);
 }
