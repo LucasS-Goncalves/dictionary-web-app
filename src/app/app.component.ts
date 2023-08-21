@@ -10,5 +10,9 @@ import { Component } from '@angular/core';
   ]
 })
 export class AppComponent {
-  title = 'dictionary-web-app';
+  openFontOptions = false;
+
+  openFontOptionsList(){
+    this.openFontOptions = !this.openFontOptions;
+  }
 }

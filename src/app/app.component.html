@@ -2,11 +2,31 @@
   <img src="../assets/images/logo.svg" alt="Dictionary">
   <div class="header_container">
 
-    <div class="font_container">
+    <div class="font_container" (click)="openFontOptionsList()" [ngClass]="{'fontOptionsOpened': openFontOptions}">
+
       <span class="fontName">Sarif</span>
-      <img src="../assets/images/icon-arrow-down.svg" alt="" class="arrow">
+
+      <div class="arrow_container">
+        <img src="../assets/images/icon-arrow-down.svg" alt="" class="arrow">
+      </div>
+
+      <div class="font_options">
+        <ul class="font_options_list">
+          <li class="font_option">
+            Sans Serif
+          </li>
+          <li class="font_option">
+            Serif
+          </li>
+          <li class="font_option">
+            Mono
+          </li>
+        </ul>
+      </div>
     </div>
-    <span class="teste"></span>
+
+    <div class="line"></div>
+
     <div class="switchThemesIcons_container">
       <input type="checkbox">
       <span class="moon">
