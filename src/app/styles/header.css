@@ -15,17 +15,20 @@
 }
 
 .header_container .font_container{
-  display: flex;
-  align-items: center;
-  gap: .9rem;
   position: relative;
 }
 
-.header_container .font_container .arrow_container .arrow{
+.header_container .font_container .fontName_arrow_container_div{
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+}
+
+.header_container .font_container .fontName_arrow_container_div .arrow_container .arrow{
   transition: .2s;
 }
 
-.header_container .font_container.fontOptionsOpened .arrow_container .arrow{
+.header_container .font_container.fontOptionsOpened .fontName_arrow_container_div .arrow_container .arrow{
   rotate: 180deg;
 }
 

@@ -1,0 +1,74 @@
+.main{
+  width: 327px;
+  margin: 0 auto;
+}
+
+.form{
+  width: 100%;
+  position: relative;
+  caret-color: var(--purple);
+}
+
+.form .text_input{
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 15px;
+  background-color: var(--grey-3);
+  padding: 0 .6rem;
+  color: var(--black-3);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.form .text_input:focus{
+  outline-color: var(--purple);
+}
+
+.form .text_input::placeholder{
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--black-3);
+  opacity: .3;
+}
+
+.form .searchIcon{
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  right: 6%;
+  background: transparent;
+  border: none;
+}
+
+.word_phonetics_section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.8rem;
+}
+
+.word_phonetics_section .word_info{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .6rem;
+}
+
+.word_phonetics_section .word_info .word{
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.word_phonetics_section .word_info .phonetic{
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--purple);
+}
+
+.word_phonetics_section .play_button{
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: transparent;
+}

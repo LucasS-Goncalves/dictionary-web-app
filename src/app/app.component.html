@@ -2,13 +2,16 @@
   <img src="../assets/images/logo.svg" alt="Dictionary">
   <div class="header_container">
 
-    <div class="font_container" (click)="openFontOptionsList()" [ngClass]="{'fontOptionsOpened': openFontOptions}">
+    <div class="font_container" [ngClass]="{'fontOptionsOpened': openFontOptions}">
 
-      <span class="fontName">Sarif</span>
+      <div class="fontName_arrow_container_div" (click)="openFontOptionsList()">
+        <span class="fontName">Sarif</span>
 
-      <div class="arrow_container">
-        <img src="../assets/images/icon-arrow-down.svg" alt="" class="arrow">
+        <div class="arrow_container">
+          <img src="../assets/images/icon-arrow-down.svg" alt="" class="arrow">
+        </div>
       </div>
+
 
       <div class="font_options">
         <ul class="font_options_list">
@@ -35,3 +38,26 @@
     </div>
   </div>
 </header>
+
+<main class="main">
+  <form class="form">
+    <input type="text" class="text_input" placeholder="Search for any word...">
+    <button class="searchIcon" type="button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path fill="none" stroke="#A445ED" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m12.663 12.663 3.887 3.887M1 7.664a6.665 6.665 0 1 0 13.33 0 6.665 6.665 0 0 0-13.33 0Z"/></svg>
+    </button>
+  </form>
+
+  <section class="word_phonetics_section">
+    <article class="word_info">
+      <h1 class="word">
+        keyboard
+      </h1>
+      <p class="phonetic">
+        /ˈkiːbɔːd/
+      </p>
+    </article>
+    <button class="play_button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 75 75"><g fill="#A445ED" fill-rule="evenodd"><circle cx="37.5" cy="37.5" r="37.5" opacity=".25"/><path d="M29 27v21l21-10.5z"/></g></svg>
+    </button>
+  </section>
+</main>
