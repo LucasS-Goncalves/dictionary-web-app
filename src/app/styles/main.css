@@ -42,10 +42,11 @@
 }
 
 .word_phonetics_section{
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1.8rem;
+  margin: 1.8rem 0;
 }
 
 .word_phonetics_section .word_info{
@@ -66,9 +67,36 @@
   color: var(--purple);
 }
 
-.word_phonetics_section .play_button{
+.word_phonetics_section .play_button,
+.word_phonetics_section .play_button svg{
   width: 48px;
   height: 48px;
   border: none;
   background: transparent;
+}
+
+@media(min-width: 768px){
+
+  .main{
+    width: 689px;
+  }
+
+  .word_phonetics_section .word_info{
+    gap: .4rem;
+  }
+
+  .word_phonetics_section .word_info .word{
+    font-size: 4rem;
+  }
+
+  .word_phonetics_section .word_info .phonetic{
+    font-size: 1.4rem;
+  }
+
+  .word_phonetics_section .play_button,
+  .word_phonetics_section .play_button svg{
+    width: 75px;
+    height: 75px;
+  }
+
 }
