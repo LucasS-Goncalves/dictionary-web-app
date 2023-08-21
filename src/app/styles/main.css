@@ -75,6 +75,11 @@
   background: transparent;
 }
 
+.word_phonetics_section .play_button svg g circle,
+.word_phonetics_section .play_button svg path{
+  transition: .3s;
+}
+
 @media(min-width: 768px){
 
   .main{
@@ -90,7 +95,7 @@
   }
 
   .word_phonetics_section .word_info .phonetic{
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   .word_phonetics_section .play_button,
@@ -98,5 +103,31 @@
     width: 75px;
     height: 75px;
   }
+}
 
+@media(min-width: 1200px){
+
+  .main{
+    width: 737px;
+  }
+
+  .word_phonetics_section{
+    margin: 3rem 0;
+  }
+
+  .word_phonetics_section .word_info{
+    gap: .6rem;
+  }
+
+  .word_phonetics_section .play_button{
+    cursor: pointer;
+  }
+
+  .word_phonetics_section .play_button:hover svg g circle{
+    opacity: 1;
+  }
+
+  .word_phonetics_section .play_button:hover svg path{
+    fill: var(--white);
+  }
 }
