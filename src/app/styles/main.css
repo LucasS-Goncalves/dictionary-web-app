@@ -80,6 +80,54 @@
   transition: .3s;
 }
 
+.partOfSpeech_section{
+  width: 100%;
+}
+
+.partOfSpeech_section .word_class{
+  width: auto;
+  font-size: 1.125rem;
+  font-style: italic;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.partOfSpeech_section .word_class::after{
+  content: "";
+  width: 230px;
+  height: 1px;
+  position: absolute;
+  top: 46%;
+  right: 0;
+  background-color: var(--grey-2);
+}
+
+.partOfSpeech_section .ul_title{
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--grey-1);
+  margin-bottom: 1.3rem;
+}
+
+.partOfSpeech_section .meanings_list{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding-left: 1rem;
+}
+
+.partOfSpeech_section .meanings_list li{
+  padding-left: .8rem;
+}
+
+.partOfSpeech_section .meanings_list li::marker{
+  color: var(--purple);
+}
+
+
+
 @media(min-width: 768px){
 
   .main{
