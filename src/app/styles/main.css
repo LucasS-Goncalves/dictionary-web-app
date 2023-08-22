@@ -85,12 +85,11 @@
 }
 
 .partOfSpeech_section .word_class{
-  width: auto;
   font-size: 1.125rem;
   font-style: italic;
   font-weight: 700;
   position: relative;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.2rem;
 }
 
 .partOfSpeech_section .word_class::after{
@@ -119,14 +118,15 @@
 }
 
 .partOfSpeech_section .meanings_list li{
+  font-size: .9375rem;
+  font-weight: 400;
+  line-height: 24px;
   padding-left: .8rem;
 }
 
 .partOfSpeech_section .meanings_list li::marker{
   color: var(--purple);
 }
-
-
 
 @media(min-width: 768px){
 
@@ -150,6 +150,24 @@
   .word_phonetics_section .play_button svg{
     width: 75px;
     height: 75px;
+  }
+
+  .partOfSpeech_section .word_class{
+    font-size: 1.5rem;
+  }
+
+  .partOfSpeech_section .word_class::after{
+    width: 550px;
+    top: 46%;
+  }
+
+  .partOfSpeech_section .ul_title{
+    font-size: 1.25rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .partOfSpeech_section .meanings_list li{
+    font-size: 1.125rem;
   }
 }
 
