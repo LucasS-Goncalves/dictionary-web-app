@@ -128,6 +128,30 @@
   color: var(--purple);
 }
 
+.partOfSpeech_section .synonyms-container{
+  margin-top: 2.2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.partOfSpeech_section .synonyms-container .synonyms-container-title{
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--grey-1);
+}
+
+.partOfSpeech_section .synonyms-container .synonyms-container-list{
+  list-style: none;
+}
+
+.partOfSpeech_section .synonyms-container .synonyms-container-list .synonyms-container-item{
+  display: inline;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--purple);
+}
+
 @media(min-width: 768px){
 
   .main{
@@ -166,8 +190,20 @@
     margin-bottom: 1.8rem;
   }
 
+  .partOfSpeech_section .meanings_list{
+    padding-left: 2.8rem;
+  }
+
   .partOfSpeech_section .meanings_list li{
     font-size: 1.125rem;
+  }
+
+  .partOfSpeech_section .synonyms-container .synonyms-container-title{
+    font-size: 1.25rem;
+  }
+
+  .partOfSpeech_section .synonyms-container .synonyms-container-list .synonyms-container-item{
+    font-size: 1.25rem;
   }
 }
 
@@ -195,5 +231,13 @@
 
   .word_phonetics_section .play_button:hover svg path{
     fill: var(--white);
+  }
+
+  .partOfSpeech_section .word_class{
+    margin-bottom: 2.7rem;
+  }
+
+  .partOfSpeech_section .synonyms-container{
+    margin-top: 3.2rem;
   }
 }
