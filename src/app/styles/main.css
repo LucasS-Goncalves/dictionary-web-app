@@ -15,7 +15,7 @@
   border: none;
   border-radius: 15px;
   background-color: var(--grey-3);
-  padding: 0 .6rem;
+  padding: 0 1.4rem;
   color: var(--black-3);
   font-size: 1rem;
   font-weight: 700;
@@ -36,7 +36,7 @@
   position: absolute;
   top: 50%;
   translate: 0 -50%;
-  right: 6%;
+  right: 7%;
   background: transparent;
   border: none;
 }
@@ -156,6 +156,15 @@
 
   .main{
     width: 689px;
+  }
+
+  .form .text_input{
+    height: 64px;
+    padding: 0 1.8rem;
+  }
+
+  .form .searchIcon{
+    right: 3.5%;
   }
 
   .word_phonetics_section .word_info{
