@@ -29,10 +29,7 @@ input:checked[type="checkbox"]:before{
   left: 60%;
 }
 
-@media(min-width: 1200px){
-
-  input[type="checkbox"]:hover {
-    background-color: var(--purple);
-    cursor: pointer;
-  }
+input[type="checkbox"]:hover {
+  background-color: var(--purple);
+  cursor: pointer;
 }
