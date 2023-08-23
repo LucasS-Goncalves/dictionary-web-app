@@ -1,6 +1,7 @@
 .main{
   width: 327px;
   margin: 0 auto;
+  padding-bottom: 2rem;
 }
 
 .form{
@@ -82,6 +83,7 @@
 
 .partOfSpeech_section{
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 .partOfSpeech_section .word_class{
@@ -152,10 +154,47 @@
   color: var(--purple);
 }
 
+.source_section{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .7rem;
+  position: relative;
+  margin-top: 4rem;
+}
+
+.source_section::before{
+  content: "";
+  position: absolute;
+  width: 327px;
+  height: 1px;
+  background-color: var(--grey-2);
+  top: -30px;
+}
+
+.source_section .source_section-title{
+  font-size: .875rem;
+  color: var(--grey-1);
+  border-bottom: 1px solid var(--grey-1);
+}
+
+.source_section .source{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration-color: var(--black-3);
+}
+
+.source_section .source .source_link{
+  font-size: .875rem;
+  color: var(--black-3);
+}
+
 @media(min-width: 768px){
 
   .main{
     width: 689px;
+    padding-bottom: 5rem;
   }
 
   .form .text_input{
@@ -183,6 +222,10 @@
   .word_phonetics_section .play_button svg{
     width: 75px;
     height: 75px;
+  }
+
+  .partOfSpeech_section{
+    margin-bottom: 3rem;
   }
 
   .partOfSpeech_section .word_class{
@@ -213,6 +256,18 @@
 
   .partOfSpeech_section .synonyms-container .synonyms-container-list .synonyms-container-item{
     font-size: 1.25rem;
+  }
+
+  .source_section{
+    flex-direction: row;
+    align-items: center;
+    gap: 1.8rem;
+    margin-top: 4rem;
+  }
+
+  .source_section::before{
+    width: 689px;
+    top: -20px;
   }
 }
 
@@ -248,5 +303,10 @@
 
   .partOfSpeech_section .synonyms-container{
     margin-top: 3.2rem;
+  }
+
+  .source_section::before{
+    width: 736px;
+    top: -20px;
   }
 }
