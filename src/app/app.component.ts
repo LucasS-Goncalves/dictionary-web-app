@@ -14,13 +14,13 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
   ]
 })
 export class AppComponent implements OnInit, AfterViewInit{
+
   openFontOptions = false;
   darkModeActive = false;
-  darkMode: any;
+  darkMode = localStorage.getItem('darkMode');
   @ViewChild('darkModeIcon') darkModeIcon!: ElementRef<HTMLInputElement>;
 
   ngOnInit(): void {
-    this.darkMode = localStorage.getItem('darkMode');
     if(this.darkMode == "dark"){
       this.darkModeActive = true;
       document.documentElement.setAttribute('data-theme', "dark");
@@ -33,9 +33,6 @@ export class AppComponent implements OnInit, AfterViewInit{
     }
   }
 
-  openFontOptionsList(){
-    this.openFontOptions = !this.openFontOptions;
-  }
 
   darkModeToggle(){
     this.darkModeActive = !this.darkModeActive;
@@ -47,41 +44,9 @@ export class AppComponent implements OnInit, AfterViewInit{
       document.documentElement.setAttribute('data-theme', "light");
       localStorage.setItem('darkMode', "light");
     }
-
   }
 
-  enableDarkMode(){
-      document.body.classList.add('darkmode');
-
-      localStorage.setItem("darkMode", "enabled")
-  }
-
-  disableDarkMode() {
-    document.body.classList.remove('darkmode');
-
-    localStorage.setItem("darkMode", "disabled");
+  openFontOptionsList(){
+    this.openFontOptions = !this.openFontOptions;
   }
 }
-
-
-// let darkMode = localStorage.getItem('darkMode');
-
-//     const enableDarkMode = () => {
-//       document.body.classList.add('darkmode');
-
-//       localStorage.setItem("darkMode", "enabled")
-//     }
-
-//     const disableDarkMode = () => {
-//       document.body.classList.remove('darkmode');
-
-//       localStorage.setItem("darkMode", "disabled");
-//     }
-
-//     if(darkMode !== 'enabled'){
-//       enableDarkMode()
-//     }
-
-// if(this.darkMode !== 'enabled'){
-//   this.enableDarkMode();
-// }
