@@ -4,45 +4,6 @@
   padding-bottom: 2rem;
 }
 
-.form{
-  width: 100%;
-  position: relative;
-  caret-color: var(--purple);
-}
-
-.form .text_input{
-  width: 100%;
-  height: 48px;
-  border: none;
-  border-radius: 15px;
-  background-color: var(--grey-3);
-  padding: 0 1.4rem;
-  color: var(--black-3);
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-.form .text_input:focus{
-  outline-color: var(--purple);
-}
-
-.form .text_input::placeholder{
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--black-3);
-  opacity: .3;
-}
-
-.form .searchIcon{
-  position: absolute;
-  top: 50%;
-  translate: 0 -50%;
-  right: 7%;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-
 .word_phonetics_section{
   width: 100%;
   display: flex;
@@ -153,6 +114,11 @@
   font-size: 1rem;
   font-weight: 700;
   color: var(--purple);
+  cursor: pointer;
+}
+
+.partOfSpeech_section .synonyms-container .synonyms-container-list .synonyms-container-item:hover{
+  border-bottom: 1px solid var(--purple);
 }
 
 .source_section{
@@ -183,12 +149,12 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  text-decoration-color: var(--black-3);
+  text-decoration-color: var(--text-color);
 }
 
 .source_section .source .source_link{
   font-size: .875rem;
-  color: var(--black-3);
+  color: var(--text-color);
 }
 
 @media(min-width: 768px){
@@ -196,15 +162,6 @@
   .main{
     width: 689px;
     padding-bottom: 5rem;
-  }
-
-  .form .text_input{
-    height: 64px;
-    padding: 0 1.8rem;
-  }
-
-  .form .searchIcon{
-    right: 3.5%;
   }
 
   .word_phonetics_section .word_info{
