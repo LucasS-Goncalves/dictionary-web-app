@@ -1,0 +1,73 @@
+.word_phonetics_section{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.8rem 0;
+}
+
+.word_phonetics_section .word_info{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .7rem;
+}
+
+.word_phonetics_section .word_info .word{
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.word_phonetics_section .word_info .phonetic{
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--purple);
+}
+
+.word_phonetics_section .play_button{
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.word_phonetics_section .play_button svg{
+  width: 48px;
+  height: 48px;
+}
+
+.word_phonetics_section .play_button svg g circle,
+.word_phonetics_section .play_button svg path{
+  transition: .3s;
+}
+
+.word_phonetics_section .play_button:hover svg g circle{
+  opacity: 1;
+}
+
+.word_phonetics_section .play_button:hover svg path{
+  fill: var(--white);
+}
+
+@media(min-width: 768px){
+
+  .word_phonetics_section{
+    margin: 2.8rem 0;
+  }
+
+  .word_phonetics_section .word_info .word{
+    font-size: 4rem;
+  }
+
+  .word_phonetics_section .word_info .phonetic{
+    font-size: 1.5rem;
+  }
+
+  .word_phonetics_section .play_button,
+  .word_phonetics_section .play_button svg{
+    width: 75px;
+    height: 75px;
+  }
+}

@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
     './styles/toggle-button.css',
     './styles/header.css',
     './styles/main.css',
-    './styles/form.css'
+    './styles/form.css',
+    './styles/word-phonetics-section.css'
   ]
 })
 export class AppComponent {
