@@ -20,6 +20,7 @@ html, body{
   --black-1: #2D2D2D;
   --black-2: #1F1F1F;
   --black-3: #050505;
+  --black-4: #3A3A3A;
   --grey-1: #757575;
   --grey-2: #E9E9E9;
   --grey-3: #F4F4F4;
@@ -27,6 +28,7 @@ html, body{
   --purple: #A445ED;
   --red: #FF5252;
 
+  --line-color: var(--grey-2);
   --moon-color: var(--grey-1);
   --input-background: var(--grey-3);
   --placeholder: var(--black-1);
@@ -40,6 +42,7 @@ html, body{
   --black-1: #2D2D2D;
   --black-2: #1F1F1F;
   --black-3: #050505;
+  --black-4: #3A3A3A;
   --grey-1: #757575;
   --grey-2: #E9E9E9;
   --grey-3: #F4F4F4;
@@ -47,6 +50,7 @@ html, body{
   --purple: #A445ED;
   --red: #FF5252;
 
+  --line-color: var(--black-4);
   --moon-color: var(--purple);
   --input-background: var(--black-2);
   --placeholder: var(--white);

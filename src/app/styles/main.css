@@ -4,84 +4,6 @@
   padding-bottom: 2rem;
 }
 
-.partOfSpeech_section{
-  width: 100%;
-  margin-bottom: 2rem;
-}
-
-.partOfSpeech_section .word_class{
-  font-size: 1.125rem;
-  font-style: italic;
-  font-weight: 700;
-  position: relative;
-  margin-bottom: 2.2rem;
-}
-
-.partOfSpeech_section .word_class::after{
-  content: "";
-  width: 230px;
-  height: 1px;
-  position: absolute;
-  top: 46%;
-  right: 0;
-  background-color: var(--grey-2);
-}
-
-.partOfSpeech_section .ul_title{
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--grey-1);
-  margin-bottom: 1.3rem;
-}
-
-.partOfSpeech_section .meanings_list{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.5rem;
-  padding-left: 1rem;
-}
-
-.partOfSpeech_section .meanings_list li{
-  font-size: .9375rem;
-  font-weight: 400;
-  line-height: 24px;
-  padding-left: .8rem;
-}
-
-.partOfSpeech_section .meanings_list li::marker{
-  color: var(--purple);
-}
-
-.partOfSpeech_section .synonyms-container{
-  margin-top: 2.2rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 3rem;
-}
-
-.partOfSpeech_section .synonyms-container .synonyms-container-title{
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--grey-1);
-}
-
-.partOfSpeech_section .synonyms-container .synonyms-container-list{
-  list-style: none;
-}
-
-.partOfSpeech_section .synonyms-container .synonyms-container-list .synonyms-container-item{
-  display: inline;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--purple);
-  cursor: pointer;
-}
-
-.partOfSpeech_section .synonyms-container .synonyms-container-list .synonyms-container-item:hover{
-  border-bottom: 1px solid var(--purple);
-}
-
 .source_section{
   display: flex;
   flex-direction: column;
@@ -125,40 +47,6 @@
     padding-bottom: 5rem;
   }
 
-  .partOfSpeech_section{
-    margin-bottom: 3rem;
-  }
-
-  .partOfSpeech_section .word_class{
-    font-size: 1.5rem;
-  }
-
-  .partOfSpeech_section .word_class::after{
-    width: 550px;
-    top: 46%;
-  }
-
-  .partOfSpeech_section .ul_title{
-    font-size: 1.25rem;
-    margin-bottom: 1.8rem;
-  }
-
-  .partOfSpeech_section .meanings_list{
-    padding-left: 2.8rem;
-  }
-
-  .partOfSpeech_section .meanings_list li{
-    font-size: 1.125rem;
-  }
-
-  .partOfSpeech_section .synonyms-container .synonyms-container-title{
-    font-size: 1.25rem;
-  }
-
-  .partOfSpeech_section .synonyms-container .synonyms-container-list .synonyms-container-item{
-    font-size: 1.25rem;
-  }
-
   .source_section{
     flex-direction: row;
     align-items: center;
@@ -176,14 +64,6 @@
 
   .main{
     width: 737px;
-  }
-
-  .partOfSpeech_section .word_class{
-    margin-bottom: 2.7rem;
-  }
-
-  .partOfSpeech_section .synonyms-container{
-    margin-top: 3.2rem;
   }
 
   .source_section::before{

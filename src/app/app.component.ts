@@ -9,7 +9,8 @@ import { Component } from '@angular/core';
     './styles/header.css',
     './styles/main.css',
     './styles/form.css',
-    './styles/word-phonetics-section.css'
+    './styles/word-phonetics-section.css',
+    './styles/part-of-speech-section.css'
   ]
 })
 export class AppComponent {

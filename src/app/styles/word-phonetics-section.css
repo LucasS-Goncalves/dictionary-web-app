@@ -16,6 +16,7 @@
 .word_phonetics_section .word_info .word{
   font-size: 2rem;
   font-weight: 700;
+  color: var(--text-color);
 }
 
 .word_phonetics_section .word_info .phonetic{
