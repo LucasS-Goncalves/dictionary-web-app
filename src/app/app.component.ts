@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
     './app.component.css',
     './styles/toggle-button.css',
     './styles/header.css',
-    './styles/main.css',
     './styles/form.css',
     './styles/word-phonetics-section.css',
     './styles/part-of-speech-section.css',
