@@ -42,6 +42,18 @@
   cursor: pointer;
 }
 
+.form .text_input.ng-invalid.ng-touched{
+  border: 1px solid var(--red);
+}
+
+.form .emptyInputError{
+  position: absolute;
+  top: 112%;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--red);
+}
+
 @media(min-width: 768px){
 
   .form .text_input{
