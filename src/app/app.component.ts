@@ -15,6 +15,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 })
 export class AppComponent implements OnInit, AfterViewInit{
 
+  fontFamily!: string | null;
   openFontOptions = false;
   darkModeActive = false;
   darkMode = localStorage.getItem('darkMode');
@@ -25,6 +26,13 @@ export class AppComponent implements OnInit, AfterViewInit{
       this.darkModeActive = true;
       document.documentElement.setAttribute('data-theme', "dark");
     }
+
+    this.fontFamily = localStorage.getItem('data-fontFamily');
+
+    if(this.fontFamily){
+      document.documentElement.setAttribute('data-fontFamily', `${this.fontFamily}`);
+    }
+
   }
 
   ngAfterViewInit(): void {
@@ -33,6 +41,11 @@ export class AppComponent implements OnInit, AfterViewInit{
     }
   }
 
+  switchFontFamily(fontName: string){
+    document.documentElement.setAttribute('data-fontFamily', `${fontName}`);
+    localStorage.setItem('data-fontFamily', `${fontName}`);
+    this.fontFamily = fontName;
+  }
 
   darkModeToggle(){
     this.darkModeActive = !this.darkModeActive;

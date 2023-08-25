@@ -120,11 +120,19 @@
     width: 689px;
     height: 100px;
   }
+
+  .header_container .font_container .fontName_arrow_container_div .fontName{
+    font-size: 1.125rem;
+  }
 }
 
 @media(min-width: 1200px){
 
   .header{
     width: 736px;
+  }
+  .header_container .font_container .font_options{
+    width: 183px;
+    height: 152px;
   }
 }

@@ -5,7 +5,7 @@
     <div class="font_container" [ngClass]="{'fontOptionsOpened': openFontOptions}">
 
       <div class="fontName_arrow_container_div" (click)="openFontOptionsList()">
-        <span class="fontName">Sarif</span>
+        <span class="fontName">{{fontFamily}}</span>
 
         <div class="arrow_container">
           <img src="../assets/images/icon-arrow-down.svg" alt="" class="arrow">
@@ -14,14 +14,14 @@
 
       <div class="font_options">
         <ul class="font_options_list">
-          <li class="font_option">
-            Sans Serif
+          <li class="font_option" (click)="switchFontFamily('Inconsolata')">
+            Inconsolata
           </li>
-          <li class="font_option">
-            Serif
+          <li class="font_option" (click)="switchFontFamily('Inter')">
+            Inter
           </li>
-          <li class="font_option">
-            Mono
+          <li class="font_option" (click)="switchFontFamily('Lora')">
+            Lora
           </li>
         </ul>
       </div>
