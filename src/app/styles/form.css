@@ -49,9 +49,13 @@
 .form .emptyInputError{
   position: absolute;
   top: 112%;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--red);
+}
+
+.form.emptyInput .text_input{
+  border: 1px solid var(--red);
 }
 
 @media(min-width: 768px){
@@ -63,6 +67,10 @@
 
   .form .searchIcon{
     right: 4%;
+  }
+
+  .form .emptyInputError{
+    font-size: 1.125rem;
   }
 }
 

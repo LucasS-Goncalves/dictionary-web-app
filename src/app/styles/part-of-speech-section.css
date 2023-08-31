@@ -14,7 +14,7 @@
 
 .partOfSpeech_section .word_class::after{
   content: "";
-  width: 230px;
+  width: 210px;
   height: 1px;
   position: absolute;
   top: 50%;
@@ -49,8 +49,17 @@
   color: var(--purple);
 }
 
+.partOfSpeech_section .meanings_list li .example{
+  font-family: var(--fontFamily);
+  font-weight: 400;
+  font-size: .9375rem;
+  line-height: 24px;
+  margin-top: .8rem;
+  color: var(--grey-1);
+}
+
 .partOfSpeech_section .synonyms-container{
-  margin-top: 2rem;
+  margin: 2rem 0;
   display: flex;
   align-items: flex-start;
   gap: 3rem;
@@ -89,7 +98,7 @@
   }
 
   .partOfSpeech_section .word_class::after{
-    width: 550px;
+    width: 530px;
     top: 46%;
   }
 
@@ -103,6 +112,10 @@
   }
 
   .partOfSpeech_section .meanings_list li{
+    font-size: 1.125rem;
+  }
+
+  .partOfSpeech_section .meanings_list li .example{
     font-size: 1.125rem;
   }
 

@@ -26,13 +26,13 @@
 .source_section .source{
   display: flex;
   align-items: center;
-  gap: .4rem;
   text-decoration-color: var(--text-color);
 }
 
 .source_section .source .source_link{
   font-size: .875rem;
   font-weight: 400;
+  margin-right: .4rem;
   color: var(--text-color);
 }
 

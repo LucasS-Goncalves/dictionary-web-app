@@ -1,7 +1,9 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms'
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { SeachWords } from './search-words.service';
+import { catchError, skip, take, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -13,51 +15,66 @@ import { SeachWords } from './search-words.service';
     './styles/form.css',
     './styles/word-phonetics-section.css',
     './styles/part-of-speech-section.css',
-    './styles/source-section.css'
+    './styles/source-section.css',
+    './styles/error-container.css',
+    './styles/loading-spinner.css'
   ]
 })
 export class AppComponent implements OnInit, AfterViewInit{
 
-  wordChosen = {
-    word: ''
-  };
+  displayError = false;
+  displayWordInfo = false;
+  displayLoadingSpinner = false;
 
-  searchWordInput!: FormGroup;
-  fontFamily!: string | null;
   openFontOptions = false;
   darkModeActive = false;
+
+  isFormValid = true;
+
+  wordChosen: any = [];
+  searchWordForm!: FormGroup;
+
+  fontFamily = localStorage.getItem('data-fontFamily');
   darkMode = localStorage.getItem('darkMode');
+
+  @ViewChild('audio') audio!: ElementRef<HTMLAudioElement>;
   @ViewChild('darkModeIcon') darkModeIcon!: ElementRef<HTMLInputElement>;
 
-  constructor(private searchWords: SeachWords){}
+  constructor(private searchWords: SeachWords, private router: Router, private route: ActivatedRoute ){}
 
   ngOnInit(): void {
-
-    this.searchWordInput = new FormGroup({
-      word: new FormControl(null, Validators.required)
-    });
-
     if(this.darkMode == "dark"){
       this.darkModeActive = true;
       document.documentElement.setAttribute('data-theme', "dark");
     }
 
-    this.fontFamily = localStorage.getItem('data-fontFamily');
-
     if(this.fontFamily){
       document.documentElement.setAttribute('data-fontFamily', `${this.fontFamily}`);
+    } else {
+      this.fontFamily = 'Inconsolata';
     }
+
+    this.searchWordForm = new FormGroup({
+      word: new FormControl(null, Validators.required)
+    });
+
+    this.route.queryParams.pipe(take(2), skip(1)).subscribe((word:any) => {
+      if(word.hasOwnProperty('word')){
+        this.searchWordForm.get('word')?.patchValue(word.word);
+        this.getWordInfoFromAPI();
+      }
+    });
   }
 
   ngAfterViewInit(): void {
-    if(this.darkMode == "dark"){
+    if(this.darkMode === "dark"){
       this.darkModeIcon.nativeElement.checked = true;
     }
   }
 
   switchFontFamily(fontName: string){
-    document.documentElement.setAttribute('data-fontFamily', `${fontName}`);
     localStorage.setItem('data-fontFamily', `${fontName}`);
+    document.documentElement.setAttribute('data-fontFamily', `${fontName}`);
     this.fontFamily = fontName;
   }
 
@@ -77,9 +94,59 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.openFontOptions = !this.openFontOptions;
   }
 
-  getWord(){
-    const word = this.searchWordInput.get('word')?.value;
-    this.wordChosen.word = word;
-    this.searchWords.searchWord(word).subscribe(console.log);
+  defineQueryParams(){
+    this.router.navigate([''], { queryParams: { word: this.searchWordForm.get('word')?.value } });
+  }
+
+  invalidForm(){
+    this.isFormValid = false;
+  }
+
+  getWordInfoFromAPI(){
+    this.isFormValid = true;
+    this.displayLoadingSpinner = true;
+    this.displayWordInfo = false;
+    this.displayError = false;
+    this.searchWords.searchWord(this.searchWordForm.get('word')?.value).subscribe(
+      {
+        next: (word:any) => {
+          if(word){
+            this.displayLoadingSpinner = false;
+            this.displayWordInfo = true;
+            this.wordChosen = [];
+            this.wordChosen.push(...[word[0]]);
+          }
+        },
+        error: (e) => {
+          this.displayLoadingSpinner = false;
+          this.displayWordInfo = false;
+          this.displayError = true;
+        }
+      }
+    );
+  }
+
+  setWordInfo(){
+    this.defineQueryParams();
+    this.getWordInfoFromAPI();
+  }
+
+  playSound(){
+    this.audio.nativeElement.play();
+  }
+
+  resetPage(){
+    this.router.navigate([], {
+      queryParams: {
+        word: null
+      }
+    });
+
+    this.searchWordForm.get('word')?.reset();
+    this.isFormValid = true;
+    this.displayWordInfo = false;
+    this.displayError = false;
+    this.displayLoadingSpinner = false;
   }
 }
+

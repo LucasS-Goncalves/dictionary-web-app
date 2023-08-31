@@ -1,5 +1,5 @@
 <header class="header">
-  <img src="../assets/images/logo.svg" alt="Dictionary" class="dictionary_icon">
+  <img src="../assets/images/logo.svg" alt="Dictionary" class="dictionary_icon" (click)="resetPage()">
   <div class="header_container">
 
     <div class="font_container" [ngClass]="{'fontOptionsOpened': openFontOptions}">
@@ -30,7 +30,7 @@
     <div class="line"></div>
 
     <div class="switchThemesIcons_container">
-      <input type="checkbox" #darkModeIcon (click)="darkModeToggle()">
+      <input type="checkbox" #darkModeIcon name="darkMode_checkbox" (click)="darkModeToggle()">
       <span class="moon">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 22"><path fill="none" stroke="#838383" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M1 10.449a10.544 10.544 0 0 0 19.993 4.686C11.544 15.135 6.858 10.448 6.858 1A10.545 10.545 0 0 0 1 10.449Z"/></svg>
       </span>
@@ -39,64 +39,86 @@
 </header>
 
 <main class="main">
-  <form class="form" [formGroup]="searchWordInput">
-    <input type="text" class="text_input" formControlName="word" placeholder="Search for any word...">
-    <button class="searchIcon" type="button" (click)="getWord()">
+  <form class="form" [ngClass]="{'emptyInput' : !isFormValid}" [formGroup]="searchWordForm" (ngSubmit)=" searchWordForm.valid ? setWordInfo() : invalidForm()">
+    <input type="text" class="text_input" name="word" formControlName="word" placeholder="Search for any word...">
+    <button class="searchIcon" type="submit">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path fill="none" stroke="#A445ED" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m12.663 12.663 3.887 3.887M1 7.664a6.665 6.665 0 1 0 13.33 0 6.665 6.665 0 0 0-13.33 0Z"/></svg>
     </button>
-    <div class="emptyInputError" *ngIf="!searchWordInput.get('word')?.valid && searchWordInput.get('word')?.touched">Whoops, can’t be empty…</div>
+    <div class="emptyInputError" *ngIf="(!searchWordForm.get('word')?.valid && searchWordForm.get('word')?.touched) || !isFormValid">Whoops, can’t be empty…</div>
   </form>
 
-  <section class="word_phonetics_section">
-    <article class="word_info">
-      <h1 class="word">
-        {{wordChosen.word}}
-      </h1>
-      <p class="phonetic">
+  <div class="container" *ngIf="displayWordInfo">
+    <div class="word_information-container" *ngFor="let word of wordChosen">
+      <section class="word_phonetics_section">
+        <article class="word_info">
+          <h1 class="word">
+            {{word.word}}
+          </h1>
+          <p class="phonetic">
+            {{word.phonetic}}
+          </p>
+        </article>
+        <button class="play_button" (click)="playSound()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 75 75"><g fill="#A445ED" fill-rule="evenodd"><circle cx="37.5" cy="37.5" r="37.5" opacity=".25"/><path d="M29 27v21l21-10.5z"/></g></svg>
+        </button>
+        <audio [src]=" word.phonetics.length ? (word.phonetics[0].audio || word.phonetics[1].audio || word.phonetics[2].audio || word.phonetics[3].audio || word.phonetics[4].audio || word.phonetics[5].audio || word.phonetics[6].audio || word.phonetics[7].audio) : null" #audio></audio>
+      </section>
 
+      <section class="partOfSpeech_section" *ngFor="let part of word.meanings">
+        <h3 class="word_class">
+          {{part.partOfSpeech}}
+        </h3>
+        <h3 class="ul_title">
+          Meaning
+        </h3>
+        <ul class="meanings_list">
+          <li class="meaning" *ngFor="let definition of part.definitions">
+            {{definition.definition}}
+            <p class="example" *ngIf="definition.example">
+              "{{definition.example}}"
+            </p>
+          </li>
+        </ul>
+
+        <div class="synonyms-container">
+          <h4 class="synonyms-container-title" *ngIf="part.synonyms[0]">
+            Synonyms
+          </h4>
+          <ul class="synonyms-container-list">
+            <li class="synonyms-container-item" *ngFor="let synonym of part.synonyms; let i = index">
+              <a [routerLink]="['/']" [queryParams]="{word: synonym}" target="_blank">
+                {{synonym}}{{i === (part.synonyms.length - 1) ? '' : ','}}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="source_section">
+        <h3 class="source_section-title">
+          Source
+        </h3>
+          <a href="{{word.sourceUrls[1] ? word.sourceUrls[1] : word.sourceUrls[0]}}" target="_blank" class="source">
+            <p class="source_link">
+              {{word.sourceUrls[1] ? word.sourceUrls[1] : word.sourceUrls[0]}}
+            </p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"><path fill="none" stroke="#838383" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.09 3.545H2.456A1.455 1.455 0 0 0 1 5v6.545A1.455 1.455 0 0 0 2.455 13H9a1.455 1.455 0 0 0 1.455-1.455V7.91m-5.091.727 7.272-7.272m0 0H9m3.636 0V5"/></svg>
+          </a>
+      </section>
+    </div>
+  </div>
+  <div class="error_container" *ngIf="displayError">
+    <img src="../assets/images/sadFace.svg" alt="Sad face">
+    <article class="error_text">
+      <h2 class="error_title">
+        No Definitions Found
+      </h2>
+      <p class="error_message">
+        Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.
       </p>
     </article>
-    <button class="play_button">
-      <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 75 75"><g fill="#A445ED" fill-rule="evenodd"><circle cx="37.5" cy="37.5" r="37.5" opacity=".25"/><path d="M29 27v21l21-10.5z"/></g></svg>
-    </button>
-  </section>
-
-  <section class="partOfSpeech_section">
-    <h3 class="word_class">
-
-    </h3>
-    <h3 class="ul_title">
-
-    </h3>
-    <ul class="meanings_list">
-      <li class="meaning">
-
-      </li>
-    </ul>
-
-    <div class="synonyms-container">
-      <h4 class="synonyms-container-title">
-        Synonyms
-      </h4>
-      <ul class="synonyms-container-list">
-        <li class="synonyms-container-item">
-          <a href="">
-
-          </a>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="source_section">
-    <h3 class="source_section-title">
-      Source
-    </h3>
-      <a href="" target="_blank" class="source">
-        <p class="source_link">
-          www.dsfsafdmsaokfmdsa.com
-        </p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"><path fill="none" stroke="#838383" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.09 3.545H2.456A1.455 1.455 0 0 0 1 5v6.545A1.455 1.455 0 0 0 2.455 13H9a1.455 1.455 0 0 0 1.455-1.455V7.91m-5.091.727 7.272-7.272m0 0H9m3.636 0V5"/></svg>
-      </a>
-  </section>
+  </div>
+  <div class="loading-spinner_container" *ngIf="displayLoadingSpinner">
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+  </div>
 </main>
