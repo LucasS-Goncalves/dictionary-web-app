@@ -2,7 +2,7 @@
 
 <h3>//EN//</h3>
 
-<p>This is the Dictionary web app (I got this challenge on Frontend Mentor website). This project consumes the Free Dictionary API, which is an API that gives you the phonetic of the word, its meanings, some usage examples, its grammar classes, how to pronounce it(with a button that plays its pronunciation) and much more. This project has darkmode, which is saved in the localStorage; You can also change the font family of the page(you have 3 options), which is also saved in the localStorage. A error is displayed if the word doesn't exist (you can see how the error is displayed below). I built this project using Angular, Typescript,HTML and CSS. *The pronunciation button is not available for all the words*</p>
+<p>This is the Dictionary web app (I got this challenge on Frontend Mentor website). This project consumes the Free Dictionary API, which is an API that gives you the phonetic of the word, its meanings, some usage examples, its word classes, how to pronounce it(with a button that plays its pronunciation) and much more. This project has darkmode, which is saved in the localStorage; You can also change the font family of the page(you have 3 options), which is also saved in the localStorage. A error is displayed if the word doesn't exist (you can see how the error is displayed below). I built this project using Angular, Typescript,HTML and CSS. *The pronunciation button is not available for all the words*</p>
 
 <p> I posted this project on my LinkedIn! Check it out here: https://www.linkedin.com/in/lucas-gon%C3%A7alves-3a2662252/ </p>
 
