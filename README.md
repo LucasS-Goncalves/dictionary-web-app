@@ -3,6 +3,7 @@
 <h2>//EN//</h2>
 
 <p>This is the Dictionary web app (I got this challenge on Frontend Mentor website). This project consumes the Free Dictionary API, which is an API that gives you the phonetic of the word, its meanings, some usage examples, its word classes, how to pronounce it(with a button that plays its pronunciation) and much more. This project has darkmode, which is saved in the localStorage; You can also change the font family of the page(you have 3 options), which is also saved in the localStorage. A error is displayed if the word doesn't exist (you can see how the error is displayed below). I built this project using Angular, Typescript,HTML and CSS. *The pronunciation button is not available for all the words*</p>
+<p>This project only works with english words</p>
 
 <p> I posted this project on my LinkedIn! Check it out here: https://www.linkedin.com/in/lucas-gon%C3%A7alves-3a2662252/ </p>
 <p>Live demo: https://dictionary-web-app-nine-jet.vercel.app/</p>
@@ -30,6 +31,7 @@
 <h3>Como eu organizei o projeto</h3>
 
 <p>Prefiro trabalhar em um componente dividindo-o em várias seções, com cada seção tendo seu próprio arquivo CSS específico localizado dentro de uma pasta 'styles'. Essa abordagem facilita a manutenção do código e a localização de elementos específicos para modificação. Além disso, criei um serviço para lidar com solicitações HTTP, para o qual precisei injetar o HttpClient no serviço para utilizar o método 'get'. No arquivo 'app.component.ts', estabeleci métodos para gerenciar solicitações HTTP usando o serviço injetado. Esses métodos são usados para definir a palavra pesquisada como um query parameter, permitindo-me recuperar a palavra da URL e exibir suas informações associadas.</p>
+<p>Este projeto só funciona com palavras em inglês</p>
 
 <p>Também trabalhei com ReactiveFormsModule já que o projeto possui input, e assim eu poderia usar validadores. Além disso, utilizei o local storage para salvar as preferências do usuário para o modo escuro e o estilo da fonte, de modo que, quando os usuários recarregarem ou revisitarem a página posteriormente, suas preferências serão mantidas.</p>
 
