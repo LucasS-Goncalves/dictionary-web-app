@@ -70,6 +70,7 @@ export class AppComponent implements OnInit, AfterViewInit{
     if(this.darkMode === "dark"){
       this.darkModeIcon.nativeElement.checked = true;
     }
+    console.log('oi')
   }
 
   switchFontFamily(fontName: string){
