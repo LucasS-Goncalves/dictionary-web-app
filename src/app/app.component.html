@@ -40,7 +40,7 @@
 
 <main class="main">
   <form class="form" [ngClass]="{'emptyInput' : !isFormValid}" [formGroup]="searchWordForm" (ngSubmit)=" searchWordForm.valid ? setWordInfo() : invalidForm()">
-    <input type="search" class="text_input" name="word" formControlName="word" placeholder="Search for any word...">
+    <input type="text" class="text_input" name="word" formControlName="word" placeholder="Search for any word...">
     <button class="searchIcon" type="submit">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path fill="none" stroke="#A445ED" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m12.663 12.663 3.887 3.887M1 7.664a6.665 6.665 0 1 0 13.33 0 6.665 6.665 0 0 0-13.33 0Z"/></svg>
     </button>
@@ -48,6 +48,7 @@
   </form>
 
   <div class="container" *ngIf="displayWordInfo">
+    <div *ngIf="displayAudioError" class="audio-error">No audio available</div>
     <div class="word_information-container" *ngFor="let word of wordChosen">
       <section class="word_phonetics_section">
         <article class="word_info">
@@ -61,7 +62,8 @@
         <button class="play_button" (click)="playSound()">
           <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 75 75"><g fill="#A445ED" fill-rule="evenodd"><circle cx="37.5" cy="37.5" r="37.5" opacity=".25"/><path d="M29 27v21l21-10.5z"/></g></svg>
         </button>
-        <audio [src]=" word.phonetics.length ? (word.phonetics[0].audio || word.phonetics[1].audio || word.phonetics[2].audio || word.phonetics[3].audio || word.phonetics[4].audio || word.phonetics[5].audio || word.phonetics[6].audio || word.phonetics[7].audio) : null" #audio></audio>
+        <audio [src]="word.phonetics.audio" #audio></audio>
+
       </section>
 
       <section class="partOfSpeech_section" *ngFor="let part of word.meanings">

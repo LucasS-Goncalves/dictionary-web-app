@@ -25,6 +25,7 @@ export class AppComponent implements OnInit, AfterViewInit{
   displayError = false;
   displayWordInfo = false;
   displayLoadingSpinner = false;
+  displayAudioError = false;
 
   openFontOptions = false;
   darkModeActive = false;
@@ -115,6 +116,8 @@ export class AppComponent implements OnInit, AfterViewInit{
             this.displayWordInfo = true;
             this.wordChosen = [];
             this.wordChosen.push(...[word[0]]);
+            this.wordChosen[0].phonetics = this.wordChosen[0].phonetics.find((audio: any) => audio.audio !== '');
+
           }
         },
         error: (e) => {
@@ -132,7 +135,14 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
 
   playSound(){
+    if(!this.wordChosen[0].phonetics) {
+      this.displayAudioError = true;
+      setTimeout(() => {
+        this.displayAudioError = false;
+      }, 3000)
+    };
     this.audio.nativeElement.play();
+
   }
 
   resetPage(){

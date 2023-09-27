@@ -26,3 +26,18 @@
   line-height: 26px;
   color: var(--grey-1);
 }
+
+.audio-error{
+  position: absolute;
+  top: 145px;
+  right: 0;
+  font-size: .8175rem;
+  font-family: var(--fontFamily);
+  color: var(--red);
+}
+
+@media(min-width: 768px){
+  .audio-error{
+    top: 210px;
+  }
+}
